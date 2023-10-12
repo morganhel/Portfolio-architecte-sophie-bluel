@@ -70,10 +70,6 @@ async function logIn(m,p) {
       //connection pas ok
       errorLogin.innerHTML="<br> Email ou mot de passe incorrect";
    }
-<<<<<<< HEAD
-
-=======
->>>>>>> login
 }
 
 //Evénement lors du clique sur bouton "Se connecter"
