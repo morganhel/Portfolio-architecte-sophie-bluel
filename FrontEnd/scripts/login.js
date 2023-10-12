@@ -1,3 +1,6 @@
+let login = document.getElementById("login");
+login.setAttribute("style","font-weight : 600");
+
 //Recup du formulaire
 let form = document.querySelector("form");
 let baliseMail = document.getElementById("email");

@@ -20,6 +20,7 @@ if (token) {
         })
 
     banner.style.display="flex"; //active bannière noire
+    body.setAttribute("style","margin-top:100px")
 
     editionButton.style.display="flex"; //active bouton modifier
     editionButton.addEventListener("click", DisplayModal); //au clique affiche la modal
@@ -57,10 +58,10 @@ function DisplayModal(){
     modal.appendChild(modalGallery);
     DisplayWorksModal();
 
-    /* Bouton Ajout */
+    /* Bouton Ajout Projet*/
     buttonAdd= document.createElement("button");
     buttonAdd.innerHTML="Ajouter une photo";
-    buttonAdd.classList.add("button");
+    buttonAdd.classList.add("button","button__form");
     modal.appendChild(buttonAdd);
     buttonAdd.addEventListener("click", ()=>{
         DisplayModalEdit();

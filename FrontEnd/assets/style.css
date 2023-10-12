@@ -91,6 +91,7 @@ nav ul {
 	display: flex;
 	align-items: center;
 	list-style-type: none;
+	gap: 22px;
 
 }
 nav li {
@@ -102,6 +103,7 @@ nav li {
 nav a {
 	text-decoration: none;
 	color:black;
+	cursor: pointer;
 }
 
 /* change li par nav a pour hover */
@@ -114,6 +116,7 @@ nav a:hover{
 }
 
 #introduction {
+	padding:140px 0 140px 0;
 	display: flex;
 	align-items: center;
 }
@@ -136,9 +139,15 @@ nav a:hover{
 #introduction p {
 	margin-bottom: 0.5em;
 }
+
+#portfolio {
+	display: flex;
+	flex-direction: column;
+	gap:50px;
+}
+
 #portfolio h2 {
 	text-align: center;
-	margin-bottom: 1em;
 }
 .gallery {
 	width: 100%;
@@ -155,6 +164,7 @@ nav a:hover{
 #contact {
 	width: 50%;
 	margin: auto;
+	padding: 50px 0 50px 0;
 }
 #contact > * {
 	text-align: center;
@@ -198,6 +208,7 @@ nav a:hover{
 	border:none;
 	font-family: 'Syne';
 	font-weight: 700;
+	font-size: 14px;
 	color: white;
 	background-color: #1D6154;
 	margin : 2em auto ;
@@ -256,7 +267,10 @@ footer nav ul {
 	display: none; /*flex;*/
 	align-items: center;
 	justify-content: center;
-	width:100%;
+	width:100vw;
+	position: absolute;
+	left: 0;
+	top:0;
 	height: 59px;
 	background-color: black;
 	color: white;
@@ -295,7 +309,6 @@ footer nav ul {
 
 
 .overlay {
-
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -310,11 +323,9 @@ footer nav ul {
 	border-radius: 10px;
 	background: rgba(255, 255, 255, 1);
 	position: absolute;
-	padding:40;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap:50px;
 }
 
 
@@ -335,16 +346,15 @@ footer nav ul {
 
 .modal-content{
 	width: 420px;
-	height: 430px;
+	height: 433px;
 	border-bottom: 1px solid rgba(179, 179, 179, 1);
-	
 }
 
 .modal-gallery {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	grid-column-gap: 8px;
-	padding-bottom: 60px;
+	padding:50px 0;
 }
 
 .modal-gallery img{
@@ -381,7 +391,6 @@ footer nav ul {
 	display:flex;
 	flex-direction: column;
 	align-items: center;
-	/* justify-content: space-between; */
 }
 
 .form__input{
@@ -437,7 +446,7 @@ footer nav ul {
 	width: 129px;
 }
 
-input[type="text"],
+.form__input input[type="text"],
 select {
 	padding: 15px;
 	border: none;
