@@ -128,20 +128,20 @@ function PreviewPhoto() {
     const file = inputPhoto.files[0];
     const reader = new FileReader();
 
-    /* lit le fichier "file" uploadé */ 
+    // lit le fichier "file" uploadé
     reader.readAsDataURL(file);
 
     reader.onload = (e) => {
-        /* change l'URL de l'image avec le résultat du reader*/
+        // change l'URL de l'image avec le résultat du reader
         preview.src = e.target.result;
 
-        /* empèche affichage des éléments de la div formInputImg */
+        // empèche affichage des éléments de la div formInputImg
         const formElements = formInputImg.querySelectorAll(".form__inputImg > *");
         formElements.forEach((element) => {
             element.style.display = "none"; 
         });
 
-        /* active l'affichage de l'img preview */
+        // active l'affichage de l'img preview
         preview.style.display = "flex";
     };
 
@@ -173,11 +173,13 @@ function VerifyInputs(){
 
 /* fonction qui ajoute un projet à l'API et au DOM*/
 async function AddProject() {
+    /*objet FormData a renseigner a l'API */
     let formData = new FormData();
     formData.append("image", inputPhoto.files[0]);
     formData.append("title", inputTitle.value);
     formData.append("category", inputCategory.value);
 
+    // ajout du projet a l'API
     fetch("http://localhost:5678/api/works", {
         method: "POST",
         headers: {'Authorization': `Bearer ${token}`},
@@ -185,14 +187,14 @@ async function AddProject() {
     })
         .then((res) => res.json())
         .then((data)=>{
-            console.log(data);
+            // ajout du projet au tableau "works"
             works.push(data);
             return works;
         })
         .then(()=>{
-            alert('projet ajouté avec succés')
-            DisplayWorks(works);
-            modalContainer.remove();
-            DisplayModal();
+            alert('projet ajouté avec succés');
+            DisplayWorks(works); //appel fonction affichage avec nouveau projet arrière plan
+            modalContainer.remove(); //supprime toute la modale
+            DisplayModal(); //nouvel affichage de la modale avec nouveau projet 
         })
 }

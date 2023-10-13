@@ -22,7 +22,7 @@ function GetCategories() {
         .then((res) => res.json())
         .then((data) => {
             categories = data;
-            createButton(categories);
+            DisplayCategories(categories);
         });
 }
 GetCategories();
@@ -55,7 +55,7 @@ function DisplayWorks(arrayworks) {
 
 
 // Fonction pour afficher les filtres API + Tous
-function createButton(filters){
+function DisplayCategories(filters){
     const divFilters = document.querySelector(".filters");
     
     //Creation du bouton TOUS
