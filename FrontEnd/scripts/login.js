@@ -39,30 +39,31 @@ function VerifyId(){
    }
  }
 
-function LogIn (){
+async function LogIn (){
    const id = {
       email : inputMail.value,
       password : inputPassword.value
    };
 
    const chargeUtile = JSON.stringify(id);
-   fetch("http://localhost:5678/api/users/login", {
+
+   let res = await fetch("http://localhost:5678/api/users/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: chargeUtile
-   })
-      .then((res) => {
-         if (res.status === 200){
-            //connection ok on recup le token
-            let data=res.json();
-            let token = data.token;
-            window.localStorage.setItem("token",token) //stock token dans localStorage
-            window.location.href="index.html" //Retour sur la page d'accueil
-      
-         }
-         else {
-            //connection pas ok
-            errorLogin.innerHTML="<br> Email ou mot de passe incorrect";
-         }
-         })
+   });
+
+   //Analyse de la réponse
+   if (res.status === 200) {
+      //connection ok on recup le token
+      const data = await res.json();
+      let idtoken = data.token;
+      window.localStorage.setItem("token",idtoken) //stock token dans localStorage
+      window.location.href="index.html" //Retour sur la page d'accueil
+   }
+
+   else {
+      //connection pas ok
+      errorLogin.innerHTML="<br> Email ou mot de passe incorrect";
+   }
  }
